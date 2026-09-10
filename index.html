@@ -3,256 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مفاجأة لـ جوجتيي ❤️ </title>
-
-  <!-- ==================== 1. التنسيق والألوان (CSS) ==================== -->
+  <title>مفاجأة ل جوجتيي ❤️</title>
   <style>
     body {
       background-color: #ffe6f0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
+      font-family: Tahoma, sans-serif;
       text-align: center;
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 50px;
     }
-
     .card {
       background: white;
-      width: 90%;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       max-width: 400px;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      position: relative;
+      margin: auto;
     }
-
-    h1 { color: #ff4d88; font-size: 22px; }
-    p { color: #555; font-size: 16px; }
-
-    input {
-      width: 80%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 2px solid #ffb3cd;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 16px;
-      outline: none;
+    .hidden {
+      display: none !important;
     }
-
     .btn {
-      background: #ff4d88;
+      background-color: #ff4d79;
       color: white;
       border: none;
-      padding: 12px 25px;
-      border-radius: 15px;
-      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      margin: 10px 5px;
-      transition: 0.1s;
+      font-size: 16px;
     }
-
-    #no-btn {
-      background: #888;
-      position: absolute;
+    .btn:hover {
+      background-color: #ff1a53;
     }
-
-    .hidden { display: none !important; }
-    .error { color: #e6005c; margin-top: 10px; font-weight: bold; }
-    .poem { white-space: pre-line; line-height: 1.8; color: #444; }
-    img { width: 100%; border-radius: 15px; margin-top: 15px; }
-
-    /* أنيميشن دخول وتكبير العنوان ثم صعوده لفوق */
-    .intro-title {
-      font-size: 26px;
-      color: #ff4d88;
-      font-weight: bold;
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 80%;
+      text-align: center;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .memory-img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 15px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    audio {
+      width: 100%;
+      margin: 10px 0;
+    }
+    .song-caption {
+      font-size: 13px;
+      color: #ff4d79;
       margin-bottom: 15px;
-      animation: moveUpTitle 2.2s ease-in-out forwards;
-    }
-
-    /* أنيميشن ظهور باقي السؤال والزراير بالتدريج */
-    .fade-in-content {
-      opacity: 0;
-      animation: fadeInEffect 1s ease-in-out 1.8s forwards;
-    }
-
-    @keyframes moveUpTitle {
-      0% {
-        transform: translateY(60px) scale(1.3);
-        opacity: 0;
-      }
-      40% {
-        transform: translateY(60px) scale(1.3);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInEffect {
-      0% {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ==================== الشاشة الأخيرة المجهزة للموبايل ==================== */
-    #final-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #ffe6f0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .big-text-1 {
-      font-size: 28px;
-      color: #ff4d88;
       font-weight: bold;
-      margin-bottom: 25px;
-      line-height: 1.4;
-      opacity: 0;
-      animation: popIn 1s ease-in-out forwards;
     }
-
-    .big-text-2 {
-      font-size: 36px;
-      color: #e6005c;
-      font-weight: bold;
-      opacity: 0;
-      animation: popIn 1s ease-in-out 1.8s forwards;
-    }
-
-    @keyframes popIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.4);
-      }
-      70% {
-        transform: scale(1.1);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    video {
+      width: 100%;
+      border-radius: 12px;
+      outline: none;
+      background: #000;
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== 2. السؤال الأول (بتحبيني؟) ==================== -->
+  <!-- 1. السؤال الأول (بتحبيني؟) -->
   <div id="step1-card" class="card">
     <div class="intro-title">مفاجأة لـ جوجتي ❤️</div>
-
     <div class="fade-in-content">
-      <h1>بتحبينيي؟ </h1>
+      <h1>بتحبيني؟</h1>
       <p>انجزيي</p>
-
-      <div id="funny-msg" class="error hidden" style="margin-bottom: 15px;">وسخههه </div>
       
-      <button class="btn" onclick="goToStep2()">اهاا</button>
-      <button class="btn" id="no-btn" onmouseover="moveButton()" onclick="moveButton()" ontouchstart="moveButton()">لا </button>
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="goToStep2()"> اهاا</button>
+        <button class="btn" id="no-btn" style="background: #888; position: relative;" onmouseover="moveButton()" onclick="moveButton()">لا</button>
+      </div>
+      <div id="funny-msg" class="error hidden" style="margin-top: 10px;">وسخههه</div>
     </div>
   </div>
 
-  <!-- ==================== 3. إدخال تاريخ الميلاد ==================== -->
+  <!-- 2. إدخال تاريخ الميلاد -->
   <div id="step2-card" class="card hidden">
-    <h1>عشان اتاكد انك الزهايمر بتاعتي</h1>
+    <h1>عشان اتأكد انك الزهايمر بتاعى</h1>
     <p>تاريخ ميلاديي</p>
-    
     <input type="number" id="day" placeholder="اليوم">
     <input type="number" id="month" placeholder="الشهر">
-    
     <br>
-    <button class="btn" onclick="checkDate()">ادخليي </button>
+    <button class="btn" onclick="checkDate()">ادخليي</button>
     <div id="error-msg" class="error"></div>
   </div>
 
-  <!-- ==================== 4. المحتوى الرومانسي ==================== -->
+  <!-- 3. المحتوى الرومانسي -->
   <div id="main-content" class="card hidden">
     <h1>حبق يجنجونتيي</h1>
     <p class="poem">
-       احمم انتي احلى حاجهه حصلتليي يعنيي و احسن جاجه اختارتهاا
-      و وجودكك معوضنيي عن حاجات كتييرر 
-     😍❤️❤️ ف احم حبق يجنجونتيي وربنا يخليكي لياا يتيي
+      اعظم انتي احلى حاجه حصلتلي يعني و احسن حاجه اختارتهاا<br>
+      و وجودك معوضنيي عن حاجات كتييرر<br>
+      ف احم حبق يجنجونتي ورينا يخليكي لياا يتيي ❤️❤️❤️
     </p>
 
-    <h3>أول صورة بعتيها </h3>
-    <img src="https://i.ibb.co/Q3rfNZrx/photo1-jpg.jpg" alt="ذكرياتنا">
+    <!-- الأغنية والجملة الصغيرة تحتها -->
+    <div style="margin-top: 20px;">
+      <p>احم لازم اغنيه يعنيي</p>
+      <audio controls>
+        <source src="https://files.catbox.moe/h1ytjb.mp3" type="audio/mp3">
+        متصفحك لا يدعم تشغيل الصوت
+      </audio>
+      <div class="song-caption">د أنا ابيع الناس ولا افرط فيك 😍💗</div>
+    </div>
 
-    <h3>اول صورةة بالحجاب يتيي</h3>
-    <img src="https://i.ibb.co/DP216Mrr/photo2-jpg.jpg" alt="اول صورةةبالحجاب يتيي">
+    <!-- الصور تحت -->
+    <div style="margin-top: 20px;">
+      <h3>أول صورة بعتيها</h3>
+      <img src="https://i.ibb.co/Q3rfNZrx/photo1-jpg.jpg" alt="ذكرياتنا" class="memory-img">
+      
+      <h3>اول صورة بالحجاب يتيي</h3>
+      <img src="https://i.ibb.co/DP216Mrr/photo2-jpg.jpg" alt="اول صورة بالحجاب يتيي" class="memory-img">
+    </div>
 
-    <h3>احم لازم اغنيهه يعنيي</h3>
-    <audio controls src="https://files.catbox.moe/yxj2v9.mp3" style="width: 100%; margin-top: 10px;"></audio>
-
-    <hr style="border: 0; border-top: 1px dashed #ffb3cd; margin: 25px 0 15px 0;">
-
-    <!-- الجزء الأخير بعد الأغنية -->
-    <h3>اتبسطيي يتي؟ 😌</h3>
-    <button class="btn" onclick="showFinalAnimation()">اهااا </button>
-    <button class="btn" style="background: #888;" onclick="showFoolishMsg()">تؤؤ </button>
-
-    <div id="foolish-msg" class="error hidden">خخ دوسي اهاا يوسخهه</div>
+    <br>
+    <button class="btn" onclick="showCartoonSection()">التالي ❤️</button>
   </div>
 
-  <!-- ==================== 5. الشاشة الأخيرة الكبيرة (أنيميشن الختام) ==================== -->
-  <div id="final-screen" class="hidden">
-    <div class="big-text-1">احم مش عايز نكد شهرر بق 😌😂</div>
-    <div class="big-text-2">بايي يروحيي 💖✨</div>
+  <!-- 4. اختيارات الكارتون -->
+  <div id="cartoon-choice-section" class="card hidden">
+    <h3>يلا كرتونن؟</h3>
+    <button class="btn" onclick="chooseCartoonYes()">يلاعع</button>
+    <button class="btn" onclick="chooseCartoonNo()" style="background: #888;">لا</button>
   </div>
 
-  <!-- ==================== 6. البرمجة والحركة (JavaScript) ==================== -->
+  <!-- 5. شاشة إدخال كلمة الحب لو اختارت لا -->
+  <div id="love-input-section" class="card hidden">
+    <h3>خخ طب اكتبي بحبك عشان يفتحح بق</h3>
+    <input type="text" id="love-input" placeholder="اكتبيي">
+    <br>
+    <button class="btn" onclick="checkLoveInput()">يلاعع</button>
+    <div id="love-error" class="error"></div>
+  </div>
+
+  <!-- 6. شاشة عرض الفيديوهات مع زرار الحلقة التانية -->
+  <div id="cartoon-screen" class="card hidden" style="max-width: 600px;">
+    <div id="cartoon-container"></div>
+  </div>
+
+  <!-- 7. الشاشة النهائية -->
+  <div id="final-screen" class="card hidden">
+    <div id="step-final-1">
+      <h2>م عايز نكدد بقق</h2>
+      <button class="btn" onclick="showZalemMsg()">هنكدد</button>
+      <button class="btn" onclick="nextFinalStep()" style="background: #4CAF50;">ماشيي</button>
+      <div id="zalem-msg" class="error hidden" style="color: #ff4d79; margin-top: 10px;">ربنا ع الظالمم</div>
+    </div>
+    
+    <div id="step-final-2" class="hidden">
+      <h2>بايي يجنجونتيي✨❤️</h2>
+      <button class="btn" onclick="closeOrResetPage()">بايي</button>
+    </div>
+  </div>
+
   <script>
-    // حركة هروب زرار "لأ" وإظهار الكلمة
+    const cartoons = [
+      "https://files.catbox.moe/v3b4fx.mp4",
+      "https://files.catbox.moe/6mz917.mp4",
+      "https://files.catbox.moe/370qtd.mp4"
+    ];
+
+    function goToStep2() {
+      const step1 = document.getElementById('step1-card');
+      const step2 = document.getElementById('step2-card');
+      if (step1) step1.classList.add('hidden');
+      if (step2) step2.classList.remove('hidden');
+    }
+
     function moveButton() {
       const noBtn = document.getElementById('no-btn');
       const funnyMsg = document.getElementById('funny-msg');
-
       if (funnyMsg) funnyMsg.classList.remove('hidden');
-
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 40);
       const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40);
-      
       noBtn.style.position = 'fixed';
       noBtn.style.left = `${x}px`;
       noBtn.style.top = `${y}px`;
     }
 
-    // الانتقال للخطوة الثانية
-    function goToStep2() {
-      document.getElementById('step1-card').classList.add('hidden');
-      document.getElementById('step2-card').classList.remove('hidden');
-    }
-
-    // التحقق من تاريخ الميلاد
     function checkDate() {
       const day = document.getElementById('day').value;
       const month = document.getElementById('month').value;
       const errorMsg = document.getElementById('error-msg');
-
-      const correctDay = "21";   
-      const correctMonth = "10";   
-
-      if (day === correctDay && month === correctMonth) {
+      if (day === "21" && month === "10") {
         document.getElementById('step2-card').classList.add('hidden');
         document.getElementById('main-content').classList.remove('hidden');
       } else {
@@ -260,16 +213,76 @@
       }
     }
 
-    // إظهار كلمة "هبلةة" عند الضغط على "تؤؤ"
-    function showFoolishMsg() {
-      document.getElementById('foolish-msg').classList.remove('hidden');
+    function showCartoonSection() {
+      document.getElementById('main-content').classList.add('hidden');
+      document.getElementById('cartoon-choice-section').classList.remove('hidden');
     }
 
-    // فتح الانيميشن النهائي بملء الشاشة عند الضغط على "أهااا"
+    function chooseCartoonYes() {
+      document.getElementById('cartoon-choice-section').classList.add('hidden');
+      showStandaloneCartoon();
+    }
+
+    function chooseCartoonNo() {
+      document.getElementById('cartoon-choice-section').classList.add('hidden');
+      document.getElementById('love-input-section').classList.remove('hidden');
+    }
+
+    function checkLoveInput() {
+      const inputVal = document.getElementById('love-input').value.trim();
+      const loveError = document.getElementById('love-error');
+
+      if (inputVal === "بحبك" || inputVal === "بحبكك") {
+        document.getElementById('love-input-section').classList.add('hidden');
+        showStandaloneCartoon();
+      } else {
+        loveError.innerText = "لازم تكتبِ بحبكك الأول!";
+      }
+    }
+
+    function showStandaloneCartoon() {
+      const randomIndex = Math.floor(Math.random() * cartoons.length);
+      const selectedCartoon = cartoons[randomIndex];
+      
+      const cartoonScreen = document.getElementById('cartoon-screen');
+      const cartoonContainer = document.getElementById('cartoon-container');
+
+      cartoonScreen.classList.remove('hidden');
+      cartoonScreen.style.display = 'block';
+      
+      cartoonContainer.innerHTML = `
+        <h2 style="color: #ff4d79; margin-bottom: 15px; font-family: Tahoma, sans-serif;">مفاجأة ليكِ 🍿</h2>
+        <div style="margin-bottom: 15px;">
+          <video controls autoplay>
+            <source src="${selectedCartoon}" type="video/mp4">
+            متصفحك لا يدعم عرض الفيديو
+          </video>
+        </div>
+        <div>
+          <button class="btn btn-secondary" onclick="showStandaloneCartoon()">الحلقة التانية ➔</button>
+          <button class="btn" onclick="showFinalAnimation()">خلصناا، ادخلي هنا ➔</button>
+        </div>
+      `;
+    }
+
     function showFinalAnimation() {
+      document.getElementById('cartoon-screen').classList.add('hidden');
       document.getElementById('final-screen').classList.remove('hidden');
     }
-  </script>
 
+    function showZalemMsg() {
+      document.getElementById('zalem-msg').classList.remove('hidden');
+    }
+
+    function nextFinalStep() {
+      document.getElementById('step-final-1').classList.add('hidden');
+      document.getElementById('step-final-2').classList.remove('hidden');
+    }
+
+    function closeOrResetPage() {
+      alert("بايي يروحيي ❤️✨");
+      location.reload(); 
+    }
+  </script>
 </body>
 </html>
